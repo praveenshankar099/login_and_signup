@@ -1,0 +1,14 @@
+{% extends 'login_register/starter.html' %}
+{% block content %}
+    {% csrf_token %}
+<form class="row g-4" action="{% url 'register' %}">
+    <div class="d-grid gap-2 col-6 mx-auto" >
+        <button class="btn btn-primary" type="submit" >Register</button>
+    </div>
+</form>
+<form class="row g-4" action="{% url 'login' %}">
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" type="submit">Login</button>
+    </div>
+</form>
+{% endblock %}

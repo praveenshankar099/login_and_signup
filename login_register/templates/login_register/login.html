@@ -1,0 +1,27 @@
+{% extends 'login_register/starter.html' %}
+{% block content %}
+    <form class="row g-4" action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        {% csrf_token %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="form-floating">
+                <h5>{{ message }}</h5>
+            {% endfor %}
+        {% endif %}
+        <div class="form-floating mb-3">
+            <input name='email' type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating">
+            <input name='password' type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-primary" type="submit">Login</button>
+        </div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <h5>If you does'nt have a account then click <a href="{% url 'register' %}">here</a></h5>
+        </div>
+    </form>
+{% endblock %}
